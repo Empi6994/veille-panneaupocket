@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Veille PanneauPocket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📰 Veille PanneauPocket</h1>
+    <div class="menu">
+      <button id="toggleList">Liste des flux</button>
+      <div id="checkboxList" class="hidden"></div>
+      <button id="uncheckAll">Décocher tout</button>
+    </div>
+  </header>
+
+  <main>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Commune</th>
+          <th>Date</th>
+          <th>Titre</th>
+          <th>Détails</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
