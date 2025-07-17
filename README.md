@@ -1,33 +1,92 @@
-# 📰 Veille PanneauPocket
+📰 Veille PanneauPocket
+Ce projet est un outil de veille locale qui agrège automatiquement les publications récentes de plusieurs communes depuis le site PanneauPocket, malgré les restrictions CORS. Il permet d'afficher les alertes, messages municipaux et informations diverses sous forme de tableau filtrable.
 
-> Outil de veille locale pour visualiser automatiquement les dernières alertes publiées sur PanneauPocket.
+🎯 Objectif
+Créer une interface web simple permettant d'afficher les dernières publications (alertes, actualités...) de plusieurs communes françaises, en contournant les limitations CORS via un proxy local.
 
----
+✅ Fonctionnalités
+Affichage d’un tableau dynamique des publications issues de plusieurs communes.
 
-## 📌 Description
+Filtrage des publications par commune via des cases à cocher.
 
-Ce projet permet d’agréger les publications issues de plusieurs communes disponibles sur [PanneauPocket](https://www.panneaupocket.com/), même si le site ne fournit pas d’API.  
-Les données sont récupérées via un **proxy local**, puis affichées dans un tableau filtrable depuis une interface web.
+Contournement du CORS grâce à un serveur proxy local Node.js.
 
----
+Extraction automatisée des données depuis les pages HTML publiques de PanneauPocket.
 
-## 🚀 Fonctionnalités
+Affichage uniquement des publications récentes (sur 7 jours).
 
-- ✅ Liste des communes surveillées (personnalisable)
-- ✅ Affichage clair des alertes récentes (7 derniers jours)
-- ✅ Filtrage par commune
-- ✅ Contournement CORS (via Node.js)
-- ✅ Interface légère et responsive
+🧱 Structure du projet
+bash
+Copier
+Modifier
+/panneaupocket-veille
+├── index.html          # Interface principale
+├── style.css           # Styles de la page
+├── script.js           # Logique de chargement des publications
+├── server.js           # Proxy Node.js pour contourner le CORS
+├── communes.json       # Liste des communes à surveiller
+└── README.md           # Ce fichier
+🚀 Installation locale
+Cloner ce dépôt :
 
----
+bash
+Copier
+Modifier
+git clone https://github.com/votre-utilisateur/panneaupocket-veille.git
+cd panneaupocket-veille
+Installer les dépendances du proxy :
 
-## 🧱 Technologies
+bash
+Copier
+Modifier
+npm install express cors node-fetch
+Lancer le serveur proxy :
 
-- HTML / CSS / JavaScript
-- Node.js + Express + CORS
-- `fetch` + parsing DOM HTML
-- Aucune base de données (tout en mémoire)
+bash
+Copier
+Modifier
+node server.js
+Le proxy sera accessible à l'adresse http://localhost:3000.
 
----
+Ouvrir le fichier index.html dans un navigateur (via Live Server ou file://)
 
-## 🗂️ Arborescence
+🛠️ Technologies utilisées
+HTML / CSS / JavaScript Vanilla
+
+Node.js + Express pour le proxy
+
+DOMParser pour parser le HTML
+
+Live Server (recommandé pour test local rapide)
+
+📝 communes.json
+Le fichier communes.json contient un tableau d'objets, chacun représentant une commune :
+
+json
+Copier
+Modifier
+[
+  {
+    "nom": "SDIS 01",
+    "url": "https://app.panneaupocket.com/ville/414371844-sdis-01-01000"
+  },
+  {
+    "nom": "Jasseron",
+    "url": "https://app.panneaupocket.com/ville/320123988-jasseron-01250"
+  },
+  {
+    "nom": "Tossiat",
+    "url": "https://app.panneaupocket.com/ville/1023434403-tossiat-01250"
+  }
+]
+🔧 Améliorations possibles
+Ajout d’un champ de recherche.
+
+Archivage des publications.
+
+Notification ou alerte automatique.
+
+Hébergement du proxy (ex. : via Render, Railway…).
+
+👤 Auteur
+Projet réalisé avec l’aide de ChatGPT pour le développement collaboratif, le débogage et la documentation.
